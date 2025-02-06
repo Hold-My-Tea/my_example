@@ -1,0 +1,6 @@
+httpx~=0.28.1
+pytest~=8.3.4
+allure-python-commons~=2.13.5
+python-dotenv~=1.0.1
+config~=0.5.1
+assertpy~=1.1
