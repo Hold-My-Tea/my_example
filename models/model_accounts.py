@@ -1,5 +1,5 @@
 
-from fakers import random_string, random_string_length_100, random_string_length_101, random_string_with_some_symbols, \
+from utils.fakers import random_string, random_string_length_100, random_string_length_101, random_string_with_some_symbols, \
     random_string_russian_symbols, random_string_diff_symbols, random_string_length_50, random_string_length_51, \
     random_string_mix_symbols_letters_numbers
 

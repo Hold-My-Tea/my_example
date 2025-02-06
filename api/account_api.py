@@ -1,8 +1,8 @@
 from http import HTTPStatus
 
-from assertions import assert_status_code, assert_contains_key, assert_equal
+from utils.assertions import assert_status_code, assert_contains_key, assert_equal
 from config import BASE_URL
-from authentication_api import get_token
+from api.authentication_api import get_token
 
 
 

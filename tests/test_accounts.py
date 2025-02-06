@@ -4,15 +4,15 @@ import allure
 import pytest
 from http import HTTPStatus
 
-from accounts.model_accounts import (create_100_length_string, create_101_length_string, \
+from models.model_accounts import (create_100_length_string, create_101_length_string, \
                                      create_russian_symbols_string, create_diff_symbols_string,
                                      create_simple_string, \
                                      create_all_special_symbols_string, create_50_length_string,
                                      create_51_length_string, create_mix_symbols_letters_numbers_string)
-from assertions import assert_status_code, assert_contains_key, assert_equal, assert_not_equal
-from accounts.account_api import create_account_request, get_account_by_id_request, delete_account_request, \
+from utils.assertions import assert_status_code, assert_contains_key, assert_equal, assert_not_equal
+from api.account_api import create_account_request, get_account_by_id_request, delete_account_request, \
     get_accounts_list_request, patch_account_request
-from accounts.account_helper import account_factory, get_account_by_type, account_factory_snmpv3
+from utils.account_helper import account_factory, get_account_by_type, account_factory_snmpv3
 
 
 @pytest.mark.parametrize("account_type", ["ipmi", "snmpv2c", "snmpv3"])
@@ -259,18 +259,6 @@ class TestAccounts:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
     @allure.title('Get account by id')
     def test_get_account_by_id(self, client, account_type):
         account_data = account_factory(account_type)
@@ -323,7 +311,6 @@ class TestAccounts:
         response = create_account_request(client, account_data)
         assert_status_code(response, HTTPStatus.CREATED)
         response_post = response.json()
-
 
         response = delete_account_request(client, response_post['id'])
         assert_status_code(response, HTTPStatus.OK)  # Ожидаемый статус ответа
